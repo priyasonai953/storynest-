@@ -10,8 +10,9 @@ export async function onRequest(context) {
 
     return new Response(
       JSON.stringify({
-        success: false,
-        diagnostic: {
+        success: true,
+message: `Email secret: ${!!env.ADMIN_EMAIL} | Password secret: ${!!env.ADMIN_PASSWORD}`,
+diagnostic: { 
           emailSecretExists: !!env.ADMIN_EMAIL,
           passwordSecretExists: !!env.ADMIN_PASSWORD,
           enteredEmailLength: (body.email || "").length,
