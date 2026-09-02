@@ -113,11 +113,9 @@
 
         const data = await response.json();
 
-        if (data.success) {
-          window.location.href = "/admin-dashboard.html";
-        } else {
-          message.textContent = "Invalid email or password.";
-        }
+        message.textContent =
+  data.message ||
+  JSON.stringify(data);
 
       } catch (error) {
         message.textContent = "Login failed. Please try again.";
