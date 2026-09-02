@@ -1,27 +1,27 @@
 export async function onRequest(context) {
   const { request, env } = context;
-  const url = new URL(request.url);
 
-  // GET request
-  if (request.method === "GET") {
-    return new Response("Admin API is ready", { status: 200 });
-  }
-
-  // Only POST is allowed for login
   if (request.method !== "POST") {
-    return new Response("Method Not Allowed", { status: 405 });
+    return new Response(
+      JSON.stringify({
+        success: false,
+        message: "Login endpoint"
+      }),
+      {
+        status: 405,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    );
   }
 
   try {
     const body = await request.json();
 
-    const email = body.email || "";
-    const password = body.password || "";
-
-    // Check admin credentials from Cloudflare Secrets
     if (
-      email !== env.ADMIN_EMAIL ||
-      password !== env.ADMIN_PASSWORD
+      body.email !== env.ADMIN_EMAIL ||
+      body.password !== env.ADMIN_PASSWORD
     ) {
       return new Response(
         JSON.stringify({
@@ -37,8 +37,6 @@ export async function onRequest(context) {
       );
     }
 
-    // Create a temporary signed-looking session token
-    // The actual secure session validation will be added next.
     const session = crypto.randomUUID();
 
     return new Response(
