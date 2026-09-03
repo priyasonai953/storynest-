@@ -1,11 +1,14 @@
-TinyTales V3 — 3D Magical World Frontend
+TinyTales Enchanted Forest Website
+=================================
 
-This version is a visual-first redesign inspired by the supplied enchanted-forest reference: cinematic forest portal artwork, layered glow/mist, subtle zoom, drifting leaves, flying butterflies, magical particles, branch ornaments, matching typography, font-style switcher, occasions and responsive mobile layout.
+Open index.html in a modern browser.
 
-Files:
-- index.html
-- style.css
-- script.js
-- assets/forest-portal.jpg
+Included:
+- Full-screen enchanted forest visual based on the supplied reference image
+- Floating magical particles
+- Animated mist and soft sunlight glow
+- Responsive TinyTales storybook UI
+- Story cards and a working story modal
+- Subtle mouse-parallax movement
 
-Frontend demo only. Real AI image generation, secure photo storage, payment, PDF generation/download, database and production authentication are not connected yet.
+No build step is required.
