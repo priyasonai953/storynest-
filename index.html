@@ -1,79 +1,12 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TinyTales — Your Magical Storybook</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Serif+Display:ital@0;1&family=Great+Vibes&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body class="font-classic">
-<div class="ambient"><span class="firefly f1"></span><span class="firefly f2"></span><span class="firefly f3"></span><span class="firefly f4"></span><span class="firefly f5"></span><span class="firefly f6"></span></div>
-<div class="butterfly b1">🦋</div><div class="butterfly b2">🦋</div><div class="butterfly b3">🦋</div>
-<div class="leaf leaf1">🍃</div><div class="leaf leaf2">🍂</div><div class="leaf leaf3">🍃</div><div class="leaf leaf4">🍂</div>
-<header class="topbar">
-  <a class="brand" href="#home"><span class="branch">❧</span><span class="brand-star">✦</span><span>TinyTales</span><span class="branch flip">❧</span></a>
-  <nav><a href="#occasions">Occasions</a><a href="#how">How It Works</a><a href="#create">Create</a></nav>
-  <div class="tools"><select id="language"><option value="en">English</option><option value="bn">বাংলা</option><option value="hi">हिंदी</option></select><select id="fontStyle" title="Storybook font"><option value="classic">Classic</option><option value="fairytale">Fairytale</option><option value="elegant">Elegant</option></select></div>
-</header>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TinyTales — Personalized Magical Storybooks</title><meta name="description" content="TinyTales creates personalized magical storybooks from your memories, photos and stories in English, বাংলা and हिंदी."><link rel="icon" href="assets/favicon.png"><meta property="og:title" content="TinyTales — Personalized Magical Storybooks"><meta property="og:description" content="Where Every Little One Becomes the Hero of Their Own Story"><link rel="stylesheet" href="style.css"></head><body>
+<header class="topbar"><a href="#home" class="brand"><img src="assets/tinytales-logo.png" alt="TinyTales"></a><nav><a href="#home">Home</a><a href="#types">Book Types</a><a href="#occasions">Occasions</a><a href="#how">How It Works</a><a href="#gallery">Gallery</a><a href="#reviews">Reviews</a><a href="#about">About Us</a></nav><div class="right"><select id="language"><option>English</option><option>বাংলা</option><option>हिंदी</option></select><button class="login" onclick="alert('Login will be connected later.')">♙ Login</button></div></header>
 <main>
-<section id="home" class="hero">
-  <div class="forest-backdrop"></div><div class="mist"></div><div class="vignette"></div>
-  <div class="hero-copy">
-    <div class="eyebrow"><span>✦</span> YOUR PEOPLE · YOUR STORY · YOUR MAGIC <span>✦</span></div>
-    <div class="ornament">❧ ───── ✧ ───── ❧</div>
-    <h1>Turn a special<br>moment into a<br><em>magical storybook.</em></h1>
-    <p>Create a personalized TinyTales for your <strong>baby, couple, family, best friend</strong> or someone you love.</p>
-    <div class="hero-actions"><button class="primary" onclick="go('create')">✦ Create My TinyTales</button><button class="ghost" onclick="go('occasions')">Explore Occasions</button></div>
-    <div class="trust">📖 Digital PDF &nbsp;·&nbsp; 🌈 English / বাংলা / हिंदी &nbsp;·&nbsp; ✨ TinyTales signature</div>
-  </div>
-  <div class="portal-glow" aria-hidden="true"><div class="portal-ring"></div><div class="portal-caption">Step into your story</div></div>
-  <div class="branch-corner left">❧<br>❧</div><div class="branch-corner right">❧<br>❧</div>
-</section>
-
-<section id="occasions" class="section dark-section">
-  <div class="section-heading"><div class="eyebrow">CHOOSE YOUR MAGIC</div><h2>Every occasion deserves its own world.</h2><p>The TinyTales signature stays the same while the magical setting changes with your moment.</p></div>
-  <div class="occasion-grid">
-    <button class="occasion puja"><span>🪔</span><b>Durga Puja</b><small>Festive pandal magic</small></button>
-    <button class="occasion birthday"><span>🎂</span><b>Birthday</b><small>A day made unforgettable</small></button>
-    <button class="occasion baby"><span>🧸</span><b>Baby Shower</b><small>A little story begins</small></button>
-    <button class="occasion love"><span>💫</span><b>Anniversary</b><small>Your love, your fairytale</small></button>
-    <button class="occasion wedding"><span>💍</span><b>Wedding</b><small>Once upon your forever</small></button>
-    <button class="occasion festival"><span>✨</span><b>Diwali</b><small>Lights, love & memories</small></button>
-    <button class="occasion eid"><span>🌙</span><b>Eid</b><small>Warm family moments</small></button>
-    <button class="occasion bhai"><span>🌸</span><b>Bhai Phonta</b><small>A sibling story</small></button>
-    <button class="occasion christmas"><span>🎄</span><b>Christmas</b><small>Winter wonderland</small></button>
-    <button class="occasion friend"><span>🦋</span><b>Best Friend</b><small>Friendship forever</small></button>
-    <button class="occasion family"><span>🏡</span><b>Family</b><small>Our little universe</small></button>
-    <button class="occasion own"><span>✦</span><b>Create My Own</b><small>Your imagination leads</small></button>
-  </div>
-</section>
-
-<section id="how" class="section parchment">
- <div class="section-heading"><div class="eyebrow">THE TINYTALES JOURNEY</div><h2>From memory to magic.</h2></div>
- <div class="steps"><div class="step"><i>01</i><span>🌿</span><h3>Choose your world</h3><p>Pick the person, occasion, language and page count.</p></div><div class="step"><i>02</i><span>📸</span><h3>Add your memories</h3><p>Upload your real photos, title, story and personal message.</p></div><div class="step"><i>03</i><span>✨</span><h3>Enter the story</h3><p>TinyTales turns your memories into a premium storybook experience.</p></div><div class="step"><i>04</i><span>📖</span><h3>Keep it forever</h3><p>Receive your personalized digital PDF with your TinyTales signature.</p></div></div>
-</section>
-
-<section id="create" class="section create-section">
- <div class="create-card">
-  <div class="create-art"><div class="mini-forest"></div><div class="mini-door">✦</div><p>YOUR STORY<br><strong>STARTS HERE</strong></p></div>
-  <div class="create-form"><div class="eyebrow">CREATE YOUR TINytaLES</div><h2>Build your magical book.</h2>
-   <div class="form-grid">
-    <label>Who is it for?<select id="person"><option>Baby / Child</option><option>Couple</option><option>Family</option><option>Best Friend</option><option>Someone Special</option></select></label>
-    <label>Occasion<select id="occasion"><option>Birthday</option><option>Durga Puja</option><option>Baby Shower</option><option>Anniversary</option><option>Wedding</option><option>Proposal</option><option>Diwali</option><option>Eid</option><option>Christmas</option><option>Bhai Phonta</option><option>Best Friend</option><option>Create My Own</option></select></label>
-    <label>Language<select id="bookLanguage"><option>English</option><option>বাংলা</option><option>हिंदी</option></select></label>
-    <label>Pages<select id="pages"><option>8 pages — ₹199 / $4.99</option><option>12 pages — ₹299 / $6.99</option><option>16 pages — ₹399 / $8.99</option><option>20 pages — ₹499 / $10.99</option><option>24 pages — ₹599 / $12.99</option><option>32 pages — ₹799 / $16.99</option></select></label>
-    <label class="full">Story title<input id="title" placeholder="e.g. Our Little Fairytale"></label>
-    <label class="full">Personal message<textarea id="message" rows="3" placeholder="Write a message that belongs only to your story…"></textarea></label>
-    <label class="full upload">📸 Add your photos<input id="photos" type="file" accept="image/*" multiple></label>
-   </div>
-   <button class="primary wide" onclick="previewBook()">✨ Create My Preview</button><p class="note">Preview is a frontend demo for now. Real AI generation, payment, secure storage and PDF delivery will be connected later.</p>
-  </div>
- </div>
-</section>
-<section id="preview" class="section preview hidden"><div class="book-preview"><div class="cover-preview"><span>✦</span><small>TINytaLES</small><h3 id="previewTitle">Our Little Fairytale</h3><p> A story made from your memories.</p><div class="cover-branch">❧ ─ ✧ ─ ❧</div></div><div><div class="eyebrow">YOUR PREVIEW</div><h2 id="previewHeading">A story waiting to begin.</h2><p id="previewText">Your personalized details will appear here.</p><button class="primary" onclick="alert('Demo only — connect payment and PDF generation next.')">Continue to Order</button></div></div></section>
-</main>
-<footer><div class="footer-branch">❧ ✦ ❧</div><b>✦ TinyTales</b><p>Magical stories made from real moments.</p><small>Digital storybooks · English · বাংলা · हिंदी</small></footer>
-<script src="script.js"></script>
-</body></html>
-
+<section id="home" class="hero"><div class="forest"></div><div class="shade"></div><div class="rays"></div><div class="sparkles"></div><div class="hero-content"><div class="hero-logo"><img src="assets/tinytales-logo.png" alt="TinyTales logo"></div><h1>Personalized Storybooks<br><em>Made Just for You</em></h1><p>Create magical, personalized storybooks with your memories, photos, and your own story — a timeless gift to treasure forever.</p><div class="actions"><button class="primary" onclick="document.getElementById('create').scrollIntoView({behavior:'smooth'})">Create Your Storybook 📖</button><button class="secondary" onclick="document.getElementById('types').scrollIntoView({behavior:'smooth'})">Explore TinyTales</button></div></div><div class="side-sign">Every Child<br>Every Story<br>Every Moment<br><b>Magical</b> 💗</div><div class="feature-bar"><span>📖 Personalized Just for You</span><span>📸 Add Photos & Memories</span><span>🎁 Perfect for Every Occasion</span><span>🛡️ Safe, Secure & Private</span><span>☁️ Instant PDF Download</span></div></section>
+<section id="types" class="section"><div class="heading"><small>CHOOSE YOUR STORY</small><h2>Made for every kind of love.</h2></div><div class="cards"><article>👶<h3>Baby / Child</h3><p>A magical world where your little one becomes the hero.</p></article><article>💞<h3>Couple</h3><p>Your memories turned into a romantic fairytale.</p></article><article>🏡<h3>Family</h3><p>A story celebrating the people who mean everything.</p></article><article>🦋<h3>Best Friend</h3><p>A friendship story made from your special moments.</p></article><article>✨<h3>Someone Special</h3><p>Create a one-of-a-kind story for someone you love.</p></article></div></section>
+<section id="occasions" class="section dark"><div class="heading"><small>EVERY OCCASION HAS A WORLD</small><h2>Choose the magic for your moment.</h2></div><div class="occasion-grid"><button>🎂 Birthday</button><button>🪔 Durga Puja</button><button>🌸 Bhai Phonta</button><button>💍 Wedding</button><button>💫 Anniversary</button><button>🍼 Baby Shower</button><button>🎆 Diwali</button><button>🌙 Eid</button><button>🎄 Christmas</button><button>🌈 Holi</button><button>📚 Saraswati Puja</button><button>🌼 Pohela Boishakh</button><button>🕉️ Janmashtami</button><button>🐘 Ganesh Chaturthi</button><button>✨ Dussehra</button><button>🌺 Navratri</button><button>🎀 Raksha Bandhan</button><button>✦ Create My Own</button></div></section>
+<section id="how" class="section parchment"><div class="heading"><small>THE TINYTALES JOURNEY</small><h2>From memory to magic.</h2></div><div class="steps"><div><b>01</b><span>🌲</span><h3>Choose your world</h3><p>Select person, occasion, language and pages.</p></div><div><b>02</b><span>📸</span><h3>Add your memories</h3><p>Upload photos, title, story and personal details.</p></div><div><b>03</b><span>✨</span><h3>Enter the story</h3><p>Your memories become a premium storybook experience.</p></div><div><b>04</b><span>📖</span><h3>Keep it forever</h3><p>Receive your personalized digital PDF.</p></div></div></section>
+<section id="gallery" class="section gallery"><div class="heading"><small>THE TINYTALES SIGNATURE</small><h2>Real memories meet storybook magic.</h2><p>Where photos and cinematic story scenes come together in one beautiful book.</p></div><div class="gallery-grid"><div class="photo-card real">📸<b>Real Photo Pages</b><span>Your precious memories stay at the heart of the book.</span></div><div class="photo-card magic">✨<b>Storybook Scene Pages</b><span>Magical illustrated scenes carry your story forward.</span></div><div class="photo-card signature"><img src="assets/tinytales-logo.png" alt="TinyTales"><b>TinyTales Signature</b><span>Logo + stylish page number on every story page.</span></div></div></section>
+<section id="create" class="section create"><div class="create-card"><div><small>CREATE YOUR TINYTALES</small><h2>Build your magical book.</h2><p>Choose your options now. Real payment, AI generation and PDF delivery will be connected in the next stage.</p></div><div class="form"><label>Who is it for?<select><option>Baby / Child</option><option>Couple</option><option>Family</option><option>Best Friend</option><option>Someone Special</option></select></label><label>Occasion<select><option>Birthday</option><option>Durga Puja</option><option>Bhai Phonta</option><option>Anniversary</option><option>Wedding</option><option>Baby Shower</option><option>Diwali</option><option>Eid</option><option>Christmas</option><option>Create My Own</option></select></label><label>Language<select><option>English</option><option>বাংলা</option><option>हिंदी</option></select></label><label>Pages<select><option>8 pages — ₹199 / $4.99</option><option>12 pages — ₹299 / $6.99</option><option>16 pages — ₹399 / $8.99</option><option>20 pages — ₹499 / $10.99</option><option>24 pages — ₹599 / $12.99</option><option>32 pages — ₹799 / $16.99</option></select></label><label class="full">Story title<input placeholder="e.g. Our Little Fairytale"></label><label class="full">Personal message<textarea rows="3" placeholder="Write a message that belongs only to your story…"></textarea></label><label class="full upload">📸 Add photos<input type="file" accept="image/*" multiple></label><button class="primary full">✨ Create My Preview</button></div></div></section>
+<section id="reviews" class="section dark reviews"><div class="heading"><small>LOVE FOR TINYTALES</small><h2>Stories made to be remembered.</h2></div><div class="review-grid"><blockquote>“A beautiful idea — memories feel like a real fairytale.”<footer>★★★★★ TinyTales family</footer></blockquote><blockquote>“The mix of photos and storybook scenes makes it feel personal.”<footer>★★★★★ TinyTales reader</footer></blockquote><blockquote>“A gift that feels completely made for one person.”<footer>★★★★★ TinyTales customer</footer></blockquote></div></section>
+<section id="about" class="section about"><img src="assets/tinytales-logo.png" alt="TinyTales"><div><small>ABOUT TINYTALES</small><h2>Where every little one becomes the hero of their own story.</h2><p>TinyTales turns meaningful moments into personalized digital storybooks with a consistent magical identity across every occasion.</p></div></section>
+</main><footer><img src="assets/tinytales-logo.png" alt="TinyTales"><p>Magical stories made from real moments.</p><small>Digital storybooks · English · বাংলা · हिंदी</small></footer><script src="script.js"></script></body></html>
