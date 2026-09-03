@@ -1,79 +1,10 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TinyTales — Your Magical Storybook</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Serif+Display:ital@0;1&family=Great+Vibes&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body class="font-classic">
-<div class="ambient"><span class="firefly f1"></span><span class="firefly f2"></span><span class="firefly f3"></span><span class="firefly f4"></span><span class="firefly f5"></span><span class="firefly f6"></span></div>
-<div class="butterfly b1">🦋</div><div class="butterfly b2">🦋</div><div class="butterfly b3">🦋</div>
-<div class="leaf leaf1">🍃</div><div class="leaf leaf2">🍂</div><div class="leaf leaf3">🍃</div><div class="leaf leaf4">🍂</div>
-<header class="topbar">
-  <a class="brand" href="#home"><span class="branch">❧</span><span class="brand-star">✦</span><span>TinyTales</span><span class="branch flip">❧</span></a>
-  <nav><a href="#occasions">Occasions</a><a href="#how">How It Works</a><a href="#create">Create</a></nav>
-  <div class="tools"><select id="language"><option value="en">English</option><option value="bn">বাংলা</option><option value="hi">हिंदी</option></select><select id="fontStyle" title="Storybook font"><option value="classic">Classic</option><option value="fairytale">Fairytale</option><option value="elegant">Elegant</option></select></div>
-</header>
-<main>
-<section id="home" class="hero">
-  <div class="forest-backdrop"></div><div class="mist"></div><div class="vignette"></div>
-  <div class="hero-copy">
-    <div class="eyebrow"><span>✦</span> YOUR PEOPLE · YOUR STORY · YOUR MAGIC <span>✦</span></div>
-    <div class="ornament">❧ ───── ✧ ───── ❧</div>
-    <h1>Turn a special<br>moment into a<br><em>magical storybook.</em></h1>
-    <p>Create a personalized TinyTales for your <strong>baby, couple, family, best friend</strong> or someone you love.</p>
-    <div class="hero-actions"><button class="primary" onclick="go('create')">✦ Create My TinyTales</button><button class="ghost" onclick="go('occasions')">Explore Occasions</button></div>
-    <div class="trust">📖 Digital PDF &nbsp;·&nbsp; 🌈 English / বাংলা / हिंदी &nbsp;·&nbsp; ✨ TinyTales signature</div>
-  </div>
-  <div class="portal-glow" aria-hidden="true"><div class="portal-ring"></div><div class="portal-caption">Step into your story</div></div>
-  <div class="branch-corner left">❧<br>❧</div><div class="branch-corner right">❧<br>❧</div>
-</section>
-
-<section id="occasions" class="section dark-section">
-  <div class="section-heading"><div class="eyebrow">CHOOSE YOUR MAGIC</div><h2>Every occasion deserves its own world.</h2><p>The TinyTales signature stays the same while the magical setting changes with your moment.</p></div>
-  <div class="occasion-grid">
-    <button class="occasion puja"><span>🪔</span><b>Durga Puja</b><small>Festive pandal magic</small></button>
-    <button class="occasion birthday"><span>🎂</span><b>Birthday</b><small>A day made unforgettable</small></button>
-    <button class="occasion baby"><span>🧸</span><b>Baby Shower</b><small>A little story begins</small></button>
-    <button class="occasion love"><span>💫</span><b>Anniversary</b><small>Your love, your fairytale</small></button>
-    <button class="occasion wedding"><span>💍</span><b>Wedding</b><small>Once upon your forever</small></button>
-    <button class="occasion festival"><span>✨</span><b>Diwali</b><small>Lights, love & memories</small></button>
-    <button class="occasion eid"><span>🌙</span><b>Eid</b><small>Warm family moments</small></button>
-    <button class="occasion bhai"><span>🌸</span><b>Bhai Phonta</b><small>A sibling story</small></button>
-    <button class="occasion christmas"><span>🎄</span><b>Christmas</b><small>Winter wonderland</small></button>
-    <button class="occasion friend"><span>🦋</span><b>Best Friend</b><small>Friendship forever</small></button>
-    <button class="occasion family"><span>🏡</span><b>Family</b><small>Our little universe</small></button>
-    <button class="occasion own"><span>✦</span><b>Create My Own</b><small>Your imagination leads</small></button>
-  </div>
-</section>
-
-<section id="how" class="section parchment">
- <div class="section-heading"><div class="eyebrow">THE TINYTALES JOURNEY</div><h2>From memory to magic.</h2></div>
- <div class="steps"><div class="step"><i>01</i><span>🌿</span><h3>Choose your world</h3><p>Pick the person, occasion, language and page count.</p></div><div class="step"><i>02</i><span>📸</span><h3>Add your memories</h3><p>Upload your real photos, title, story and personal message.</p></div><div class="step"><i>03</i><span>✨</span><h3>Enter the story</h3><p>TinyTales turns your memories into a premium storybook experience.</p></div><div class="step"><i>04</i><span>📖</span><h3>Keep it forever</h3><p>Receive your personalized digital PDF with your TinyTales signature.</p></div></div>
-</section>
-
-<section id="create" class="section create-section">
- <div class="create-card">
-  <div class="create-art"><div class="mini-forest"></div><div class="mini-door">✦</div><p>YOUR STORY<br><strong>STARTS HERE</strong></p></div>
-  <div class="create-form"><div class="eyebrow">CREATE YOUR TINytaLES</div><h2>Build your magical book.</h2>
-   <div class="form-grid">
-    <label>Who is it for?<select id="person"><option>Baby / Child</option><option>Couple</option><option>Family</option><option>Best Friend</option><option>Someone Special</option></select></label>
-    <label>Occasion<select id="occasion"><option>Birthday</option><option>Durga Puja</option><option>Baby Shower</option><option>Anniversary</option><option>Wedding</option><option>Proposal</option><option>Diwali</option><option>Eid</option><option>Christmas</option><option>Bhai Phonta</option><option>Best Friend</option><option>Create My Own</option></select></label>
-    <label>Language<select id="bookLanguage"><option>English</option><option>বাংলা</option><option>हिंदी</option></select></label>
-    <label>Pages<select id="pages"><option>8 pages — ₹199 / $4.99</option><option>12 pages — ₹299 / $6.99</option><option>16 pages — ₹399 / $8.99</option><option>20 pages — ₹499 / $10.99</option><option>24 pages — ₹599 / $12.99</option><option>32 pages — ₹799 / $16.99</option></select></label>
-    <label class="full">Story title<input id="title" placeholder="e.g. Our Little Fairytale"></label>
-    <label class="full">Personal message<textarea id="message" rows="3" placeholder="Write a message that belongs only to your story…"></textarea></label>
-    <label class="full upload">📸 Add your photos<input id="photos" type="file" accept="image/*" multiple></label>
-   </div>
-   <button class="primary wide" onclick="previewBook()">✨ Create My Preview</button><p class="note">Preview is a frontend demo for now. Real AI generation, payment, secure storage and PDF delivery will be connected later.</p>
-  </div>
- </div>
-</section>
-<section id="preview" class="section preview hidden"><div class="book-preview"><div class="cover-preview"><span>✦</span><small>TINytaLES</small><h3 id="previewTitle">Our Little Fairytale</h3><p> A story made from your memories.</p><div class="cover-branch">❧ ─ ✧ ─ ❧</div></div><div><div class="eyebrow">YOUR PREVIEW</div><h2 id="previewHeading">A story waiting to begin.</h2><p id="previewText">Your personalized details will appear here.</p><button class="primary" onclick="alert('Demo only — connect payment and PDF generation next.')">Continue to Order</button></div></div></section>
-</main>
-<footer><div class="footer-branch">❧ ✦ ❧</div><b>✦ TinyTales</b><p>Magical stories made from real moments.</p><small>Digital storybooks · English · বাংলা · हिंदी</small></footer>
-<script src="script.js"></script>
-</body></html>
-
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TinyTales</title><link rel="stylesheet" href="style.css"></head><body>
+<header><a href="#"><b>✦ TinyTales</b></a><nav><a href="#occasions">Occasions</a><a href="#how">How it works</a><a href="#create">Create</a></nav><select><option>English</option><option>বাংলা</option><option>हिंदी</option></select></header>
+<section class="hero"><div class="stars"></div><div class="portal">✦</div><div class="content"><small>YOUR PEOPLE · YOUR STORY · YOUR MAGIC</small><h1>Turn a special moment into a <i>magical storybook.</i></h1><p>Create a personalized TinyTales for your baby, couple, family, best friend or someone you love.</p><button onclick="go('create')">✦ Create My TinyTales</button><a class="ghost" href="#occasions">Explore Occasions</a><div class="trust">📖 Digital PDF · 🌈 English / বাংলা / हिन्दी · ✨ TinyTales signature</div></div><div class="forest"></div></section>
+<section><small>WELCOME TO TINyTALES</small><h2>Every memory deserves its own little world.</h2><p class="lead">Choose who the story is for, choose the occasion, add your photos and words — and turn a real moment into a premium digital storybook.</p><div class="people"><button onclick="pick('Baby')">🧸<b>Baby</b><small>Little memories</small></button><button onclick="pick('Couple')">💜<b>Couple</b><small>Your love story</small></button><button onclick="pick('Family')">🏡<b>Family</b><small>Our story</small></button><button onclick="pick('Best Friend')">🌷<b>Best Friend</b><small>Forever moments</small></button><button onclick="pick('Someone Special')">✨<b>Someone Special</b><small>A story for them</small></button></div></section>
+<section id="occasions" class="dark"><small>CHOOSE YOUR MAGIC</small><h2>One occasion. One beautiful world.</h2><p class="lead">Your occasion shapes the mood, decorations and story atmosphere.</p><div class="grid">
+<button onclick="occ('Durga Puja')">🪔 <b>Durga Puja</b><small>Pandal lights · Bengali festive magic</small></button><button onclick="occ('Birthday')">🎂 <b>Birthday</b><small>Joy & celebration</small></button><button onclick="occ('Baby Shower')">🍼 <b>Baby Shower</b><small>A new chapter</small></button><button onclick="occ('Anniversary')">💍 <b>Anniversary</b><small>Love through the years</small></button><button onclick="occ('Wedding')">💐 <b>Wedding</b><small>A forever beginning</small></button><button onclick="occ('Proposal')">💌 <b>Proposal</b><small>One question, one forever</small></button><button onclick="occ('Diwali')">🪔 <b>Diwali</b><small>Lights & togetherness</small></button><button onclick="occ('Eid')">🌙 <b>Eid</b><small>Warmth & blessings</small></button><button onclick="occ('Christmas')">🎄 <b>Christmas</b><small>Cozy festive wonder</small></button><button onclick="occ('Bhai Phonta')">🌼 <b>Bhai Phonta</b><small>Sibling love</small></button><button onclick="occ('Best Friend')">🌸 <b>Best Friend</b><small>Memories worth keeping</small></button><button onclick="occ('Create My Own')">✨ <b>Create My Own</b><small>Your moment, your theme</small></button></div></section>
+<section id="how"><small>HOW IT WORKS</small><h2>From a photo to a little fairytale.</h2><div class="steps"><div><em>01</em><b>Choose</b><p>Person, occasion, language and pages.</p></div><div><em>02</em><b>Personalize</b><p>Add photos, names and your story.</p></div><div><em>03</em><b>Preview</b><p>See your magical story direction.</p></div><div><em>04</em><b>Receive</b><p>Get your finished digital PDF.</p></div></div></section>
+<section id="create" class="create"><div class="box"><small>CREATE YOUR BOOK</small><h2>Let's open your story.</h2><p class="lead">Use your own story or let TinyTales shape it around your occasion.</p><div class="form"><label>Who is it for?<select id="person"><option>Baby</option><option>Couple</option><option>Family</option><option>Best Friend</option><option>Someone Special</option></select></label><label>Occasion<select id="occasion"><option>Birthday</option><option>Durga Puja</option><option>Baby Shower</option><option>Anniversary</option><option>Wedding</option><option>Proposal</option><option>Diwali</option><option>Eid</option><option>Christmas</option><option>Bhai Phonta</option><option>Best Friend</option><option>Create My Own</option></select></label><label>Language<select><option>English</option><option>বাংলা</option><option>हिंदी</option></select></label><label>Pages<select><option>8 pages — ₹199 / $4.99</option><option>12 pages — ₹299 / $6.99</option><option>16 pages — ₹399 / $8.99</option><option>20 pages — ₹499 / $10.99</option><option>24 pages — ₹599 / $12.99</option><option>32 pages — ₹799 / $16.99</option></select></label><label class="wide">Story title<input id="title" placeholder="e.g. Our Little Forever"></label><label class="wide">Special story / message<textarea id="message" rows="4" placeholder="Write your story, memory or message..."></textarea></label><label class="wide">Photos <input id="photos" type="file" accept="image/*" multiple></label><div id="photo" class="wide photo">📷 Your photos will appear here</div><button class="wide" onclick="previewBook()">✦ Create My Preview</button></div></div></section>
+<section id="preview" class="hidden"><div class="preview"><div class="cover">✦<b>TinyTales</b><small id="co"></small></div><div><small>YOUR STORY PREVIEW</small><h2 id="pt">Your TinyTales</h2><p id="pm"></p><p>📷 Real photos · 🎨 Storybook scenes · ✨ Occasion theme</p><button onclick="alert('Demo preview ready. Real payment, AI generation and PDF delivery will be connected next.')">Continue to Order</button></div></div></section>
+<footer><b>✦ TinyTales</b><p>Personalized stories for the moments you never want to forget.</p></footer><script src="script.js"></script></body></html>
