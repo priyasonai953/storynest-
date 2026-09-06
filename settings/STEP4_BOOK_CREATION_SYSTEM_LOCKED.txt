@@ -1,0 +1,286 @@
+TIN YTALES — STEP 4 BOOK CREATION SYSTEM — LOCKED MASTER SETTINGS
+
+Purpose:
+This document records the Step 4 settings locked for the TinyTales Book Creation System. These settings are to be implemented together, not as separate ZIP updates after each sub-setting.
+
+1. WHO IS THIS BOOK FOR?
+- Baby / Child
+- Couple
+- Family
+- Best Friend
+- Someone Special
+The selected type drives the relevant occasion choices and personalization flow.
+
+2. OCCASION SYSTEM
+Approved occasions include:
+- Birthday
+- Baby Shower
+- New Baby
+- First Birthday
+- Anniversary
+- Wedding
+- Engagement
+- Proposal / Love
+- Graduation
+- Durga Puja
+- Bhai Phonta
+- Diwali
+- Eid
+- Christmas
+- Holi
+- Saraswati Puja
+- Ganesh Chaturthi
+- Janmashtami
+- Pohela Boishakh
+- Dussehra
+- Navratri
+- Raksha Bandhan
+- Family
+- Best Friend
+- Custom / Other
+No Onam or Pongal.
+
+3. LANGUAGE
+- English
+- Bengali (India)
+- Hindi (India)
+The selected language controls story text, rhyme/poem, UI text where applicable, fonts and layout.
+
+4. STORYBOOK PAGE PACKAGES
+Story pages:
+- 8
+- 12
+- 16
+- 20
+- 24
+- 32
+Covers are additional PDF pages:
+8 story pages = 10 total PDF pages
+12 = 14 total
+16 = 18 total
+20 = 22 total
+24 = 26 total
+32 = 34 total
+
+5. TITLE
+Customer can enter a custom title.
+
+6. STORY SOURCE
+- Use a TinyTales original story generated for the selected type/occasion.
+- Or use the customer's own story.
+- Maximum 2 stories per book.
+- Customer may divide pages between the two stories or use all pages for one story.
+
+7. PERSONAL DETAILS
+Allow relevant personalized details such as names, relationship, memorable events and other customer-provided details. Approved details remain consistent throughout the order.
+
+8. PHOTO UPLOAD
+Default storybook mix:
+8 pages = 4 real photos + 4 AI illustrations
+12 = 6 + 6
+16 = 8 + 8
+20 = 10 + 10
+24 = 12 + 12
+32 = 16 + 16
+For larger/personalized photo-heavy books, the customer may provide more original photos and AI adjusts the story flow.
+One main image/illustration per story page. No collage. Image is prominent but never full-page; dedicated readable story space remains.
+
+9. OCCASION RHYME / POEM
+AI can generate an occasion-specific rhyme/poem. Examples include birthday, Durga Puja Bengali rhyme, Bhai Phonta sibling rhyme, anniversary romantic poem and baby-shower welcome rhyme.
+
+10. AI CHARACTER PREVIEW
+Before payment:
+- Generate personalized AI character preview from supplied photo(s).
+- Preserve faithful face/appearance.
+- Clothing, hair and accessories are defined and remembered.
+- Customer can regenerate until satisfied.
+- Preview is free before payment.
+- Approved character becomes locked for the order.
+
+11. STYLE & CHARACTER CONSISTENCY
+Across every generated page:
+- Same approved face/identity
+- Same hair
+- Same clothing
+- Same shoes/accessories
+- Same body proportions/age
+- Same art style
+- Same environment/lighting tone
+Pose, expression and action may vary naturally.
+Regeneration uses the approved reference and must not create a new face.
+
+12. STORY + SCENE + PAGE MATCHING
+Each page's story text, image/illustration, border, decoration and occasion theme must describe the same scene.
+AI checks for mismatch and regenerates only flagged pages.
+Story pacing should have a natural beginning, middle/high point and ending.
+
+13. OCCASION-SPECIFIC VISUAL THEME
+The whole book follows the selected occasion/theme with:
+- Depth
+- Lighting
+- Shadows
+- Glow/particles where appropriate
+- Matching borders/decor
+- Story-driven illustrations
+- Theme-coordinated typography
+"7D" is a visual style concept, not a literal display technology.
+
+14. FONT & TYPOGRAPHY
+Languages support style categories:
+- Stylish
+- Elegant
+- Cute
+- Storybook
+- Handwritten
+- Classic
+- Normal
+English, Bengali and Hindi use appropriate language-specific fonts. Customer can preview the selected style live.
+Controls include text size, alignment, spacing, color, title/story/message styling. AI automatically lays out text without breaking readability.
+
+15. COVER + PAGE DESIGN
+- Premium front cover
+- Premium back cover
+- Occasion-specific background/theme
+- Photo or illustrated cover layouts
+- Decorative borders/elements
+- Page numbers
+- Fixed TinyTales signature/logo
+- Coordinated font/design/decor
+- Mobile preview
+- Final PDF/flipbook consistency
+
+16. TIN YTALES BRAND RULE
+TinyTales signature visual identity remains across all books. A subtle TinyTales signature/logo is present throughout the storybook and stronger branding appears on the ending/last page and back cover.
+
+17. PRE-PAYMENT PREVIEW
+Before payment the customer sees:
+- AI character preview
+- Theme preview
+- Key book configuration
+Customer approves before payment.
+
+18. APPROVAL LOCK
+After approval, lock:
+- Character
+- Theme
+- Font/design
+- Layout
+- Photos
+- Story/text
+- Borders/decorations
+Final generation must use the approved version. Only an explicit customer change triggers regeneration. QC checks for unexpected changes.
+
+19. PAYMENT / GENERATION ORDER
+Approved preview -> payment -> generation -> final full preview -> review -> first download unlock.
+Payment failure or money-debited/no-book cases enter Payment Issue / Refund Pending handling.
+
+20. FINAL PREVIEW + REVIEW
+Customer sees the complete book before first download.
+Buttons:
+- Looks Perfect
+- Request Changes
+Before first download, customer gives 1–5 star review and optional comment. First download unlocks after review. Later downloads do not require another review or payment.
+
+21. PDF / FLIPBOOK
+Final PDF is print-ready for home/local printing and also suitable for digital viewing. Flipbook presentation should preserve the same approved pages/design.
+
+22. ORDER MEMORY
+Within the same order, retain approved:
+- Names/relationship/details
+- Character
+- Clothes/accessories
+- Story roles/events
+- Theme
+- Language
+- Font/design
+- Approved text
+All regeneration must carry this context forward.
+
+23. PHOTO PRIVACY
+Original customer photos are not permanently retained. Re-uploaded originals are deleted within 24 hours. Generated illustrations/order data needed for completed orders may be retained; original real-photo files are not kept as backups.
+
+24. AI QUALITY CONTROL
+Automatic QC checks:
+- Story quality
+- Language/spelling/grammar
+- Character consistency
+- Scene/page matching
+- Occasion match
+- Visual errors
+- Safety/content policy
+- Copyright/style-copying issues
+Passing orders can auto-approve; only flagged/low-confidence cases go to admin.
+
+25. CUSTOMER PROGRESS
+Show progress stages:
+Received -> Payment -> AI Story -> Illustrations -> QC -> Assembly -> Final Preview -> Download
+
+26. DRAFT / RESUME
+Customer can save a draft and resume later. Original photos are not permanently stored for this purpose.
+
+27. CUSTOMER ACCOUNT
+Sections:
+- My TinyTales
+- My Storybooks
+- My Gift Cards
+- Order History
+- Payment Status
+- Download
+- Flipbook/Card
+- Support
+
+28. SUPPORT
+Support areas:
+- Storybook
+- Gift Card
+- Photo
+- Payment
+- Download
+- Privacy
+- Contact TinyTales
+Issue report can include Order ID.
+
+29. NOTIFICATION RULES
+Customer notifications for:
+- Payment
+- Character preview
+- Creation started
+- Preview ready
+- Completed
+- Download
+- Changes
+- Generation issue
+- Refund
+My Orders/Notifications stores status. Optional email notifications. Never place original customer photos in notifications.
+
+30. ADMIN NOTIFICATIONS
+Smart alerts for:
+- Needs Review
+- Image Issue
+- Story Issue
+- Payment Issue
+- Generation Failed
+- Customer Change Request
+- Refund Issue
+Include Order ID, timestamp and review information.
+
+31. FAILURE RECOVERY
+- Automatic retry for temporary generation failure.
+- Regenerate only failed page where possible.
+- Payment success must remain protected.
+- Finite retry limit.
+- Admin manual retry for unresolved failures.
+
+32. SECURITY / PRIVACY
+- Secure payment architecture
+- Account security
+- Unique Order ID
+- Consent/privacy notice before payment
+- AI/photo processing notice
+- 24-hour original-photo deletion rule
+- Download security
+- Flipbook security
+- Audit logging
+
+33. CORE RULE
+All Step 4 settings above are to be implemented as ONE Book Creation System update. Do not create a new ZIP for every individual setting. Future Step 4 changes should be accumulated and bundled together before the next implementation ZIP.

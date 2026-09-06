@@ -1,1 +1,12 @@
+TinyTales Step 3 — Bengali Font Settings
 
+Headline/Card/Storybook title: decorative Bengali headline style based on the supplied references.
+Story body: clean, highly readable Bengali Unicode font; decorative headline fonts are not for long paragraphs.
+Personal message/poem: handwriting-inspired Bengali style.
+
+Supplied Bengali fonts:
+- FN Arafat Noakhali
+- FNMahinDuiDashok
+
+The four supplied Bengali headline/card reference images are included in assets/font-references/.
+Approved font choice must remain locked through PDF and flipbook generation.
