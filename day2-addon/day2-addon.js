@@ -7,3 +7,4 @@
   function setState(k,v){state[k]=v; document.dispatchEvent(new CustomEvent('tinytales:selection',{detail:{...state}}));}
   window.TinyTalesDay2={state,selectBookType:v=>setState('bookType',v),selectOccasion:v=>setState('occasion',v),selectLanguage:v=>setState('language',v),getSelection:()=>({...state})};
 })();
+
