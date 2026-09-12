@@ -32,8 +32,35 @@
   $('#createPreviewBtn')?.addEventListener('click',()=>{sync();$('#wizard')?.scrollIntoView({behavior:'smooth'});renderWizard();});
   $('#mockGenerate')?.addEventListener('click',()=>{localStorage.setItem('tinytalesOrder',JSON.stringify({...state,status:'Character Preview Ready'}));$('#generationStatus').textContent='Character Preview Ready';});
   $('#mockApprove')?.addEventListener('click',()=>{localStorage.setItem('tinytalesOrder',JSON.stringify({...state,status:'Approved — Ready for Payment'}));$('#generationStatus').textContent='Approved — Ready for Payment';});
-  $('#mockPay')?.addEventListener('click',()=>{localStorage.setItem('tinytalesOrder',JSON.stringify({...state,status:'Payment Integration Required'}));$('#generationStatus').textContent='Payment Integration Required';});
+  const prices={8:{inr:199,usd:4.99},12:{inr:299,usd:6.99},16:{inr:399,usd:8.99},20:{inr:499,usd:10.99},24:{inr:599,usd:12.99},32:{inr:799,usd:16.99}};
+  const checkout=$('#checkout'), regionBtns=$$('.region-btn'), methodBtns=$$('.payment-method'), consent=$('#paymentConsent'), payBtn=$('#securePayBtn');
+  let paymentRegion='india', paymentMethod='upi';
+  function selectedPages(){ return Number(state.pages)||8; }
+  function updateCheckout(){
+    const p=selectedPages(), price=prices[p]||prices[8];
+    $('#checkoutProduct')&&( $('#checkoutProduct').textContent=state.product );
+    $('#checkoutPages')&&( $('#checkoutPages').textContent=p+' pages' );
+    $('#checkoutOccasion')&&( $('#checkoutOccasion').textContent=state.occasion );
+    $('#checkoutTotal')&&( $('#checkoutTotal').textContent=paymentRegion==='india'?'₹'+price.inr:'$'+price.usd );
+    methodBtns.forEach(b=>b.hidden=(paymentRegion==='india'&&b.dataset.method==='paypal')||(paymentRegion==='international'&&b.dataset.method==='upi'));
+    if((paymentRegion==='india'&&paymentMethod==='paypal')||(paymentRegion==='international'&&paymentMethod==='upi')) paymentMethod=paymentRegion==='india'?'upi':'paypal';
+    methodBtns.forEach(b=>b.classList.toggle('selected',b.dataset.method===paymentMethod&&!b.hidden));
+    if(payBtn) payBtn.disabled=!consent?.checked;
+  }
+  regionBtns.forEach(b=>b.addEventListener('click',()=>{regionBtns.forEach(x=>x.classList.remove('selected'));b.classList.add('selected');paymentRegion=b.dataset.region;updateCheckout();}));
+  methodBtns.forEach(b=>b.addEventListener('click',()=>{if(b.hidden)return;methodBtns.forEach(x=>x.classList.remove('selected'));b.classList.add('selected');paymentMethod=b.dataset.method;updateCheckout();}));
+  consent?.addEventListener('change',updateCheckout);
+  $('#mockPay')?.addEventListener('click',()=>{
+    localStorage.setItem('tinytalesOrder',JSON.stringify({...state,status:'Checkout Ready'}));
+    $('#generationStatus').textContent='Checkout Ready';
+    if(checkout){checkout.hidden=false;checkout.scrollIntoView({behavior:'smooth'});updateCheckout();}
+  });
+  $('#closeCheckout')?.addEventListener('click',()=>{if(checkout)checkout.hidden=true;$('#wizard')?.scrollIntoView({behavior:'smooth'});});
+  $('#securePayBtn')?.addEventListener('click',()=>{
+    localStorage.setItem('tinytalesOrder',JSON.stringify({...state,status:'Payment Gateway Not Connected'}));
+    $('#paymentStatus').textContent='Payment gateway connection is required before accepting real payments.';
+  });
   sync(); renderWizard();
 })();
-
+    
 
