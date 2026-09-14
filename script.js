@@ -1,65 +1,43 @@
-(function(){
-  const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-  const state={type:'Baby / Child',occasion:'Birthday',language:'English',product:'Storybook',pages:8,photos:[],drafts:[],step:1};
-  const typeCards=$$('.type-card'), occasionBtns=$$('.occasion-btn'), createType=$('#createType'), createOccasion=$('#createOccasion'), createLanguage=$('#createLanguage'), lang=$('#language');
-  const productButtons=$$('.product-btn'), wizard=$('#wizard'), progress=$('#progress');
-  function sync(){
-    if(createType) createType.value=state.type;
-    if(createOccasion) createOccasion.value=state.occasion;
-    if(createLanguage) createLanguage.value=state.language;
-    if(lang) lang.value=state.language;
-    $$('.summary-type').forEach(x=>x.textContent=state.type);
-    $$('.summary-occasion').forEach(x=>x.textContent=state.occasion);
-    $$('.summary-language').forEach(x=>x.textContent=state.language);
-  }
-  function goCreate(){ $('#create')?.scrollIntoView({behavior:'smooth'}); }
-  typeCards.forEach(card=>card.addEventListener('click',()=>{typeCards.forEach(c=>c.classList.remove('selected'));card.classList.add('selected');state.type=card.dataset.type;sync();goCreate();}));
-  occasionBtns.forEach(btn=>btn.addEventListener('click',()=>{occasionBtns.forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');state.occasion=btn.dataset.occasion;sync();goCreate();}));
-  productButtons.forEach(btn=>btn.addEventListener('click',()=>{productButtons.forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');state.product=btn.dataset.product;$('#productChoice').textContent=state.product;}));
-  [lang,createLanguage].forEach(el=>el?.addEventListener('change',()=>{state.language=el.value;sync();}));
-  createType?.addEventListener('change',e=>state.type=e.target.value);
-  createOccasion?.addEventListener('change',e=>state.occasion=e.target.value);
-  const photoInput=$('#photoInput'); photoInput?.addEventListener('change',e=>{state.photos=[...e.target.files];$('#photoCount').textContent=state.photos.length+' photo(s) selected';});
-  $$('.wizard-next').forEach(b=>b.addEventListener('click',()=>{const n=Math.min(6,state.step+1);state.step=n;renderWizard();}));
-  $$('.wizard-back').forEach(b=>b.addEventListener('click',()=>{state.step=Math.max(1,state.step-1);renderWizard();}));
-  function renderWizard(){
-    $$('.wizard-panel').forEach(p=>p.hidden=+p.dataset.step!==state.step);
-    if(progress) progress.style.width=(state.step/6*100)+'%';
-    $$('.step-dot').forEach(d=>d.classList.toggle('active',+d.dataset.step===state.step));
-  }
-  $('#saveDraft')?.addEventListener('click',()=>{localStorage.setItem('tinytalesDraft',JSON.stringify(state));alert('Draft saved on this device.');});
-  $('#resumeDraft')?.addEventListener('click',()=>{try{Object.assign(state,JSON.parse(localStorage.getItem('tinytalesDraft')||'{}'));sync();renderWizard();alert('Draft restored.');}catch(e){alert('No saved draft found.');}});
-  $('#createPreviewBtn')?.addEventListener('click',()=>{sync();$('#wizard')?.scrollIntoView({behavior:'smooth'});renderWizard();});
-  $('#mockGenerate')?.addEventListener('click',()=>{localStorage.setItem('tinytalesOrder',JSON.stringify({...state,status:'Character Preview Ready'}));$('#generationStatus').textContent='Character Preview Ready';});
-  $('#mockApprove')?.addEventListener('click',()=>{localStorage.setItem('tinytalesOrder',JSON.stringify({...state,status:'Approved — Ready for Payment'}));$('#generationStatus').textContent='Approved — Ready for Payment';});
-  const prices={8:{inr:199,usd:4.99},12:{inr:299,usd:6.99},16:{inr:399,usd:8.99},20:{inr:499,usd:10.99},24:{inr:599,usd:12.99},32:{inr:799,usd:16.99}};
-  const checkout=$('#checkout'), regionBtns=$$('.region-btn'), methodBtns=$$('.payment-method'), consent=$('#paymentConsent'), payBtn=$('#securePayBtn');
-  let paymentRegion='india', paymentMethod='upi';
-  function selectedPages(){ return Number(state.pages)||8; }
-  function updateCheckout(){
-    const p=selectedPages(), price=prices[p]||prices[8];
-    $('#checkoutProduct')&&( $('#checkoutProduct').textContent=state.product );
-    $('#checkoutPages')&&( $('#checkoutPages').textContent=p+' pages' );
-    $('#checkoutOccasion')&&( $('#checkoutOccasion').textContent=state.occasion );
-    $('#checkoutTotal')&&( $('#checkoutTotal').textContent=paymentRegion==='india'?'₹'+price.inr:'$'+price.usd );
-    methodBtns.forEach(b=>b.hidden=(paymentRegion==='india'&&b.dataset.method==='paypal')||(paymentRegion==='international'&&b.dataset.method==='upi'));
-    if((paymentRegion==='india'&&paymentMethod==='paypal')||(paymentRegion==='international'&&paymentMethod==='upi')) paymentMethod=paymentRegion==='india'?'upi':'paypal';
-    methodBtns.forEach(b=>b.classList.toggle('selected',b.dataset.method===paymentMethod&&!b.hidden));
-    if(payBtn) payBtn.disabled=!consent?.checked;
-  }
-  regionBtns.forEach(b=>b.addEventListener('click',()=>{regionBtns.forEach(x=>x.classList.remove('selected'));b.classList.add('selected');paymentRegion=b.dataset.region;updateCheckout();}));
-  methodBtns.forEach(b=>b.addEventListener('click',()=>{if(b.hidden)return;methodBtns.forEach(x=>x.classList.remove('selected'));b.classList.add('selected');paymentMethod=b.dataset.method;updateCheckout();}));
-  consent?.addEventListener('change',updateCheckout);
-  $('#mockPay')?.addEventListener('click',()=>{
-    localStorage.setItem('tinytalesOrder',JSON.stringify({...state,status:'Checkout Ready'}));
-    $('#generationStatus').textContent='Checkout Ready';
-    if(checkout){checkout.hidden=false;checkout.scrollIntoView({behavior:'smooth'});updateCheckout();}
-  });
-  $('#closeCheckout')?.addEventListener('click',()=>{if(checkout)checkout.hidden=true;$('#wizard')?.scrollIntoView({behavior:'smooth'});});
-  $('#securePayBtn')?.addEventListener('click',()=>{
-    localStorage.setItem('tinytalesOrder',JSON.stringify({...state,status:'Payment Gateway Not Connected'}));
-    $('#paymentStatus').textContent='Payment gateway connection is required before accepting real payments.';
-  });
-  sync(); renderWizard();
-})();
-     
+const state={step:1,type:'Baby / Child',occasion:'Birthday',language:'English',pages:8,product:'Personalized Storybook',title:'',name:'',relationship:'',details:'',memories:'',storySource:'TinyTales Original Story',ownStory:'',photos:[]};
+const occasions=['Birthday','Baby Shower','New Baby','First Birthday','Anniversary','Wedding','Engagement','Proposal / Love','Graduation','Durga Puja','Bhai Phonta','Diwali','Eid','Christmas','Holi','Saraswati Puja','Ganesh Chaturthi','Janmashtami','Pohela Boishakh','Dussehra','Navratri','Raksha Bandhan','Family','Best Friend','Custom / Other'];
+const types=['Baby / Child','Couple','Family','Best Friend','Someone Special'];
+const pages=[8,12,16,20,24,32];
+const prices={8:{inr:199,usd:4.99},12:{inr:299,usd:6.99},16:{inr:399,usd:8.99},20:{inr:499,usd:10.99},24:{inr:599,usd:12.99},32:{inr:799,usd:16.99}};
+const stepTitles=['Who is this magical storybook for?','Choose the magic you want to celebrate','Choose Your TinyTales Book','Tell Us Their Story','Bring Your Memories Into The Story','Your Magical Book Is Ready'];
+const stepKickers=['CREATE TINYTALES','OCCASION','BOOK CONFIGURATION','PERSONALIZATION','MEMORIES','PREVIEW • APPROVAL • PAYMENT'];
+const $=s=>document.querySelector(s);const $$=s=>[...document.querySelectorAll(s)];
+function save(){sessionStorage.setItem('tinytalesDraft',JSON.stringify(state));}
+function load(){try{Object.assign(state,JSON.parse(sessionStorage.getItem('tinytalesDraft')||'{}'))}catch(e){}}
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
+function optionGrid(items,key){return `<div class="option-grid">${items.map(x=>`<button class="choice ${String(state[key])===String(x)?'active':''}" data-key="${key}" data-value="${String(x).replaceAll('"','&quot;')}">${x}</button>`).join('')}</div>`}
+function renderStep(){
+ $('#stepTitle').textContent=stepTitles[state.step-1];$('#stepKicker').textContent=stepKickers[state.step-1];$('#stepCount').textContent=`${state.step} / 6`;$('#progressFill').style.width=`${((state.step-1)/5)*100+16}%`;
+ let html='';
+ if(state.step===1) html=optionGrid(types,'type');
+ if(state.step===2) html=optionGrid(occasions,'occasion');
+ if(state.step===3) html=`<div class="field"><label>Product / Story Type</label>${optionGrid(['Personalized Storybook','Gift Card'],'product')}</div><div class="field" style="margin-top:16px"><label>Language</label>${optionGrid(['English','বাংলা','हिन्दी'],'language')}</div><div class="field" style="margin-top:16px"><label>Book Length</label>${optionGrid(pages,'pages')}</div>`;
+ if(state.step===4) html=`<div class="field-grid"><div class="field full"><label>Story Title</label><input id="fTitle" value="${esc(state.title)}" placeholder="Give your story a magical title"></div><div class="field"><label>Name</label><input id="fName" value="${esc(state.name)}" placeholder="Name"></div><div class="field"><label>Relationship</label><input id="fRelationship" value="${esc(state.relationship)}" placeholder="Relationship"></div><div class="field"><label>Personal Details</label><textarea id="fDetails" placeholder="Important details">${esc(state.details)}</textarea></div><div class="field"><label>Special Memories</label><textarea id="fMemories" placeholder="A memory you want included">${esc(state.memories)}</textarea></div><div class="field full"><label>Story Source</label>${optionGrid(['TinyTales Original Story','Your Own Story'],'storySource')}</div>${state.storySource==='Your Own Story'?`<div class="field full"><label>Your Own Story</label><textarea id="fStory" placeholder="Paste or write your story">${esc(state.ownStory)}</textarea></div>`:''}</div>`;
+ if(state.step===5) html=`<div class="upload-box"><div class="upload-icon">📷</div><h3>Bring your memories into the story</h3><p>Default mix: 50% real photos + 50% AI storybook illustrations. One main image per story page; no collage.</p><label class="btn btn-purple">Add Photos<input id="photoInput" type="file" accept="image/*" multiple hidden></label><div id="photoList" class="photo-list"></div><small>Original uploaded photos are intended for temporary processing and deletion, not permanent backup storage.</small></div>`;
+ if(state.step===6) html=`<div class="approval-preview"><div class="preview-book"><div class="watermark">PREVIEW — TINYTales</div><div class="preview-page"><b>${esc(state.title||'Your Magical Story')}</b><small>${esc(state.name||'Your loved one')} • ${state.occasion}</small><p>Your complete personalized book is reviewed here before payment. You can edit or regenerate until it looks right.</p></div></div><div class="review-panel"><b>Premium Review</b><button class="choice active" data-action="edit">Edit</button><button class="choice" data-action="regen">Regenerate Page</button><button class="choice active" data-action="approve">Looks Perfect</button><p>HD Quality Download Available After Payment</p><div class="order-preview"><span>Package</span><b>${state.pages} story pages</b><span>India ₹${prices[state.pages].inr} / International $${prices[state.pages].usd}</span></div></div></div>`;
+ $('#wizardBody').innerHTML=html;bindStep();updatePreview();
+ $('#backBtn').style.visibility=state.step===1?'hidden':'visible';$('#nextBtn').textContent=state.step===6?'Continue to Payment':'Continue';
+}
+function esc(v){return String(v??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;')}
+function bindStep(){
+ $$('[data-key]').forEach(b=>b.onclick=()=>{const k=b.dataset.key;state[k]=k==='pages'?Number(b.dataset.value):b.dataset.value;save();renderStep()});
+ ['fTitle','fName','fRelationship','fDetails','fMemories','fStory'].forEach(id=>{const el=$('#'+id);if(el)el.oninput=()=>{const map={fTitle:'title',fName:'name',fRelationship:'relationship',fDetails:'details',fMemories:'memories',fStory:'ownStory'};state[map[id]]=el.value;save();updatePreview()}});
+ const pi=$('#photoInput');if(pi)pi.onchange=e=>{state.photos=[...state.photos,...[...e.target.files].map(f=>f.name)];save();renderStep();toast(`${e.target.files.length} photo(s) added`)};
+ $$('[data-action]').forEach(b=>b.onclick=()=>{if(b.dataset.action==='edit'){state.step=4;renderStep();toast('Edit mode opened')}else if(b.dataset.action==='regen'){toast('Only the selected/failed page would be regenerated by the AI backend')}else{toast('Approved preview locked. Payment is the next step.')}})
+}
+function updatePreview(){$('#previewType').textContent=state.type;$('#previewOccasion').textContent=state.occasion;$('#previewLanguage').textContent=state.language;$('#previewPages').textContent=`${state.pages} Pages`;$('#miniTitle').textContent=state.title||'Your Magical Story';$('#miniMeta').textContent=`${state.type} • ${state.occasion}`}
+$('#nextBtn').onclick=()=>{if(state.step<6){state.step++;save();renderStep()}else{openPayment()}};$('#backBtn').onclick=()=>{if(state.step>1){state.step--;save();renderStep()}};
+function openPayment(){const order='TT-'+new Date().getFullYear()+'-'+Math.random().toString(36).slice(2,8).toUpperCase();const d=document.createElement('dialog');d.className='simple-dialog';d.innerHTML=`<h2>Payment & Order</h2><p><b>Order ID:</b> ${order}</p><p>${state.pages} story pages • ${state.language} • ${state.occasion}</p><p><b>India:</b> ₹${prices[state.pages].inr} &nbsp; <b>International:</b> $${prices[state.pages].usd}</p><div class="option-grid"><button class="choice active" id="rz">🇮🇳 UPI / Razorpay</button><button class="choice" id="pp">🌎 PayPal</button></div><p style="font:13px Arial;color:#bbb">Secure gateway secrets stay server-side. This front-end demo does not charge real money.</p><button class="btn btn-purple" id="payDemo">Pay Now (Demo)</button> <button class="btn btn-dark" id="closePay">Cancel</button>`;document.body.appendChild(d);d.showModal();$('#closePay').onclick=()=>d.close();$('#payDemo').onclick=()=>{d.close();toast('Payment flow placeholder: connect gateway server-side, then unlock HD PDF after verified payment + review');setTimeout(()=>finalUnlock(order),500)};}
+function finalUnlock(order){const d=document.createElement('dialog');d.className='simple-dialog';d.innerHTML=`<h2>Final Book</h2><p>Payment verification is required before a real HD download. The approved order <b>${order}</b> is now represented in the front-end workflow.</p><button class="btn btn-purple" id="reviewBtn">Give 1–5 Star Review</button>`;document.body.appendChild(d);d.showModal();$('#reviewBtn').onclick=()=>{d.close();toast('Review step recorded in demo. HD download would unlock after backend verification.')}}
+$$('[data-go]').forEach(b=>b.onclick=()=>document.getElementById(b.dataset.go)?.scrollIntoView({behavior:'smooth'}));
+$$('.recipient-card').forEach(b=>b.onclick=()=>{state.type=b.dataset.type;state.step=1;save();document.getElementById('create').scrollIntoView({behavior:'smooth'});renderStep();toast(`${state.type} selected`)})
+$('#loginBtn').onclick=()=>$('#loginDialog').showModal();
+$$('[data-close]').forEach(b=>b.onclick=()=>document.getElementById(b.dataset.close).close());
+const refs=['01-forest-portal.png','02-landing-page.jpg','03-forest-home.jpg','04-menu-cards.jpg','05-homepage.jpg','06-who-is-it-for.jpg','07-occasions.jpg','08-book-config.jpg','09-story-personalization.jpg','10-photo-upload.jpg','11-character-preview.jpg','12-theme-font.jpg','13-full-book-preview.jpg','14-checkout.jpg','15-old-landing-page.png','16-old-forest.png','17-old-menu.png','18-old-homepage.png','19-old-portal.png']
+$('#referenceBtn').onclick=()=>{$('#referenceDialog').showModal();$('#referenceGrid').innerHTML=refs.map((r,i)=>`<figure><img src="assets/reference-screens/${r}" alt="TinyTales design reference ${i+1}" loading="lazy"><figcaption>${r}</figcaption></figure>`).join('')};
+load();renderStep();
+  
