@@ -1,95 +1,90 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>TinyTales — Personalized Magical Storybooks</title>
-  <meta name="description" content="Create a personalized TinyTales magical storybook for baby, couple, family, best friend or someone special.">
-  <meta name="theme-color" content="#080b1d">
-  <meta property="og:title" content="TinyTales — Personalized Magical Storybooks">
-  <meta property="og:description" content="Turn a special moment into a magical storybook.">
-  <link rel="canonical" href="https://storynest-ew9.pages.dev/">
-  <link rel="icon" href="assets/tinytales-logo.png">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#070a19">
+<meta name="description" content="TinyTales — personalized magical storybooks for every special occasion.">
+<meta property="og:title" content="TinyTales — Personalized Magical Storybooks">
+<meta property="og:description" content="Turn a special moment into a magical storybook.">
+<link rel="canonical" href="https://storynest-ew9.pages.dev/">
+<link rel="icon" href="assets/tinytales-logo.png">
+<title>TinyTales — Personalized Magical Storybooks</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="stars" aria-hidden="true"></div>
-  <header class="site-header">
-    <a class="brand" href="#home" aria-label="TinyTales home"><img src="assets/tinytales-logo.png" alt="TinyTales" class="brand-logo"><span>TinyTales</span></a>
-    <nav class="nav-links" aria-label="Primary navigation">
-      <a href="#how">How It Works</a><a href="#occasions">Occasions</a><a href="#pricing">Pricing</a><a href="#samples">Sample Books</a>
-    </nav>
-    <div class="header-actions"><button class="glass-select" id="languageBtn">🌐 <span>English</span>⌄</button><button class="btn btn-small btn-purple" id="loginBtn">Login</button></div>
-  </header>
+<div class="ambient" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+<header class="site-header">
+  <a class="brand" href="#home"><img src="assets/tinytales-logo.png" alt="TinyTales logo"><span>TinyTales</span></a>
+  <nav><a href="#how">How It Works</a><a href="#occasions">Occasions</a><a href="#pricing">Pricing</a><a href="#samples">Sample Books</a></nav>
+  <div class="header-actions"><button class="glass-btn" id="langBtn">🌐 <span>English</span>⌄</button><button class="pill-btn" id="loginBtn">Login</button></div>
+</header>
 
-  <main id="home">
-    <section class="hero section-shell">
-      <div class="hero-copy">
-        <div class="eyebrow">✦ YOUR PEOPLE ✦ YOUR STORY ✦ YOUR MAGIC ✦</div>
-        <h1>Turn a special<br>moment into a<br><span>magical storybook.</span></h1>
-        <p>Create a personalized TinyTales book for your baby, couple, family, best friend or someone you love.</p>
-        <div class="hero-actions"><button class="btn btn-large btn-purple" data-go="create">✦ Create My TinyTales</button><button class="btn btn-large btn-dark" data-go="occasions">▣ Explore Occasions</button></div>
-      </div>
-      <div class="hero-portal" aria-hidden="true"><div class="portal-glow"></div><div class="door"><div class="door-light"></div><div class="door-frame"></div></div></div>
-    </section>
+<main id="home">
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow">✦ YOUR PEOPLE ✦ YOUR STORY ✦ YOUR MAGIC ✦</div>
+    <h1>Turn a special moment into a <em>magical storybook.</em></h1>
+    <p>Create a personalized TinyTales book for a baby, couple, family, best friend or someone special — in English, বাংলা or हिन्दी.</p>
+    <div class="hero-actions"><button class="primary" data-start>✦ Create My TinyTales</button><button class="secondary" data-scroll="#occasions">Explore Occasions</button></div>
+    <div class="trust-row"><span>📖 Digital PDF</span><span>🌈 3 Languages</span><span>✦ TinyTales Signature</span><span>🛡 Secure</span></div>
+  </div>
+  <div class="portal-wrap" aria-label="TinyTales magical portal">
+    <div class="portal"><div class="portal-inner"><div class="portal-light"></div><div class="portal-path"></div></div></div>
+    <div class="portal-caption">A little doorway into their story</div>
+  </div>
+</section>
 
-    <section class="feature-bar glass-panel">
-      <div><span class="feature-icon">📖</span><b>Digital PDF Book</b><small>Beautiful, print-ready storybook</small></div>
-      <div><span class="feature-icon">🌈</span><b>Multiple Languages</b><small>English / বাংলা / हिन्दी</small></div>
-      <div><span class="feature-icon">✦</span><b>TinyTales Signature</b><small>With love, from TinyTales</small></div>
-      <div><span class="feature-icon">🛡</span><b>100% Secure</b><small>Your data is safe with us</small></div>
-    </section>
+<section class="section" id="occasions">
+  <div class="section-title"><span>✦</span><h2>Create for every <em>special occasion</em></h2><span>✦</span></div>
+  <div class="occasion-mini">
+    <button data-type="Baby / Child"><div class="art art-baby">👶</div><b>Baby</b><small>Little memories</small></button>
+    <button data-type="Couple"><div class="art art-couple">♥</div><b>Couple</b><small>Love story</small></button>
+    <button data-type="Family"><div class="art art-family">👨‍👩‍👧</div><b>Family</b><small>Forever moments</small></button>
+    <button data-type="Best Friend"><div class="art art-friend">✧</div><b>Friends</b><small>Shared adventures</small></button>
+    <button data-type="Someone Special"><div class="art art-special">📖</div><b>Someone Special</b><small>A heartfelt gift</small></button>
+  </div>
+</section>
 
-    <section class="section-shell occasion-preview" id="occasions">
-      <div class="section-heading"><span>✦</span><h2>Create for every <em>special occasion</em></h2><span>✦</span></div>
-      <div class="recipient-cards">
-        <button class="recipient-card" data-type="Baby / Child"><div class="card-art baby-art">👶<span>✦</span></div><b>For Baby</b><small>Celebrate their little journey</small></button>
-        <button class="recipient-card" data-type="Couple"><div class="card-art couple-art">♥</div><b>For Couple</b><small>Celebrate your love story</small></button>
-        <button class="recipient-card" data-type="Family"><div class="card-art family-art">👨‍👩‍👧</div><b>For Family</b><small>Cherish beautiful family moments</small></button>
-        <button class="recipient-card" data-type="Best Friend"><div class="card-art friend-art">♧</div><b>For Friends</b><small>Celebrate friendship that lasts forever</small></button>
-      </div>
-    </section>
+<section class="section journey" id="how">
+ <div class="section-title"><span>✦</span><h2>The TinyTales <em>journey</em></h2><span>✦</span></div>
+ <div class="journey-line">
+  <article><i>01</i><strong>Choose your world</strong><p>Person, occasion, language and book length.</p></article>
+  <article><i>02</i><strong>Add your memories</strong><p>Names, story details and your photos.</p></article>
+  <article><i>03</i><strong>See the magic</strong><p>Character, theme and complete preview.</p></article>
+  <article><i>04</i><strong>Keep it forever</strong><p>Approve, pay and unlock HD PDF.</p></article>
+ </div>
+</section>
 
-    <section class="section-shell journey" id="how">
-      <div class="section-heading"><span>✦</span><h2>The TinyTales <em>journey</em></h2><span>✦</span></div>
-      <div class="journey-grid">
-        <div class="journey-card"><i>01</i><span>🌲</span><b>Choose your world</b><small>Person, occasion, language and pages.</small></div>
-        <div class="journey-card"><i>02</i><span>✎</span><b>Add your memories</b><small>Photos, title, story and personal details.</small></div>
-        <div class="journey-card"><i>03</i><span>✦</span><b>See the magic</b><small>Character, theme and full book preview.</small></div>
-        <div class="journey-card"><i>04</i><span>📖</span><b>Keep it forever</b><small>Approve, pay and unlock your HD PDF.</small></div>
-      </div>
-    </section>
+<section class="section pricing" id="pricing">
+ <div class="section-title"><span>✦</span><h2>Simple magical <em>packages</em></h2><span>✦</span></div>
+ <div class="price-grid" id="priceGrid"></div>
+ <p class="price-note">All prices are for digital PDF storybooks. Covers are added to the final PDF automatically. Physical printing & home delivery are coming later.</p>
+</section>
 
-    <section class="create-section section-shell" id="create">
-      <div class="progress-wrap"><div class="progress-line"><span id="progressFill"></span></div><div class="progress-labels"><span>1 Create</span><span>2 Customize</span><span>3 Preview</span><span>4 Approval</span><span>5 Payment</span><span>6 Download</span></div></div>
-      <div class="create-layout">
-        <div class="wizard-card glass-panel">
-          <div class="wizard-head"><div><small id="stepKicker">CREATE TINYTALES</small><h2 id="stepTitle">Who is this magical storybook for?</h2></div><span class="step-count" id="stepCount">1 / 6</span></div>
-          <div id="wizardBody"></div>
-          <div class="wizard-actions"><button class="btn btn-dark" id="backBtn">Back</button><button class="btn btn-purple" id="nextBtn">Continue</button></div>
-        </div>
-        <aside class="live-preview glass-panel"><small>LIVE BOOK PREVIEW</small><div class="mini-book"><div class="mini-cover"><span>TinyTales</span><b id="miniTitle">Your Magical Story</b><small id="miniMeta">Personalized storybook</small></div></div><div class="preview-meta"><b id="previewType">Baby / Child</b><span id="previewOccasion">Birthday</span><span id="previewLanguage">English</span><span id="previewPages">8 Pages</span></div></aside>
-      </div>
-    </section>
+<section class="section samples" id="samples">
+ <div class="section-title"><span>✦</span><h2>Real memories meet <em>storybook magic</em></h2><span>✦</span></div>
+ <div class="sample-card">
+   <div class="sample-book"><div class="sample-page"><span>TinyTales</span><b>Once Upon<br>A Memory...</b><small>Real photos + AI storybook scenes</small></div><div class="sample-page second"><div class="sample-photo"></div><p>Your story becomes a beautiful page with a dedicated space for readable text.</p></div></div>
+   <div><div class="eyebrow">50% REAL + 50% AI BY DEFAULT</div><h3>A real book feeling, made from your memories.</h3><p>One main image per story page, no collage. Character and visual style stay consistent from beginning to end.</p><button class="primary" data-start>Start Your Book</button></div>
+ </div>
+</section>
 
-    <section class="section-shell pricing" id="pricing">
-      <div class="section-heading"><span>✦</span><h2>Simple magical <em>packages</em></h2><span>✦</span></div>
-      <div class="price-grid">
-        <div class="price-card"><b>8 Pages</b><strong>₹199</strong><small>$4.99 international</small></div><div class="price-card featured"><b>16 Pages</b><strong>₹399</strong><small>$8.99 international</small></div><div class="price-card"><b>32 Pages</b><strong>₹799</strong><small>$16.99 international</small></div>
-      </div>
-    </section>
+<section class="cta"><div><div class="eyebrow">✦ YOUR MAGIC AWAITS ✦</div><h2>Ready to make their story unforgettable?</h2><p>Build the preview first. Pay only when it looks perfect.</p></div><button class="primary" data-start>Create My TinyTales</button></section>
+</main>
 
-    <section class="section-shell samples" id="samples">
-      <div class="section-heading"><span>✦</span><h2>Real memories meet <em>storybook magic</em></h2><span>✦</span></div>
-      <div class="sample-book-row"><div class="sample-spread"><div></div><div></div></div><div><h3>Premium book preview</h3><p>Real-photo pages and story-driven AI illustration pages are designed together, with the approved character, theme, fonts and TinyTales signature carried throughout.</p><button class="btn btn-purple" data-go="create">Start Your Book</button></div></div>
-    </section>
-  </main>
+<footer><div><b>TinyTales</b><small>Your People • Your Story • Your Magic</small></div><div class="footer-links"><a href="#how">How It Works</a><a href="#pricing">Pricing</a><button id="refsBtn">Design References</button><button id="supportBtn">Support</button></div><small>Digital PDF only • Physical books coming soon</small></footer>
 
-  <footer class="footer"><div><b>TinyTales</b><small>Your People • Your Story • Your Magic</small></div><div class="footer-links"><a href="#how">How It Works</a><a href="#pricing">Pricing</a><button id="referenceBtn">Design References</button></div><small>Digital PDF only • Physical books coming soon</small></footer>
+<dialog id="wizard" class="wizard-dialog">
+ <div class="wizard-top"><div class="wizard-brand"><img src="assets/tinytales-logo.png" alt="TinyTales"><span>TinyTales</span></div><button class="x" data-close="wizard">×</button></div>
+ <div class="progress"><div class="progress-track"><span id="progress"></span></div><div class="progress-dots" id="dots"></div></div>
+ <div class="wizard-grid"><section class="wizard-main"><div class="step-kicker" id="stepKicker"></div><h2 id="stepTitle"></h2><div id="stepBody"></div><div class="wizard-actions"><button class="secondary" id="backBtn">Back</button><button class="primary" id="nextBtn">Continue</button></div></section><aside class="live-card"><div class="live-label">LIVE STORYBOOK</div><div class="live-book"><div><span>TinyTales</span><b id="liveTitle">Your Magical Story</b><small id="liveMeta">Baby / Child • Birthday</small></div></div><div class="live-tags"><span id="liveType">Baby / Child</span><span id="liveOccasion">Birthday</span><span id="liveLang">English</span><span id="livePages">8 Pages</span></div></aside></div>
+</dialog>
 
-  <dialog id="referenceDialog" class="reference-dialog"><div class="dialog-head"><h2>Design References</h2><button class="close-btn" data-close="referenceDialog">×</button></div><p>These are the supplied references used as the visual blueprint. The customer UI itself is implemented in HTML/CSS/JS rather than displaying screenshots as the interface.</p><div class="reference-grid" id="referenceGrid"></div></dialog>
-  <dialog id="loginDialog" class="simple-dialog"><h2>Login</h2><p>Customer account authentication is integration-ready. Secure production login will be connected server-side.</p><button class="btn btn-purple" data-close="loginDialog">Close</button></dialog>
-  <div class="toast" id="toast" role="status"></div>
-  <script src="script.js"></script>
-</body>
-</html>
+<dialog id="refs" class="refs-dialog"><div class="dialog-head"><h2>Design References</h2><button class="x" data-close="refs">×</button></div><p>The supplied references are included in this final package and are used as the visual blueprint for the real HTML/CSS/JS interface.</p><div class="refs-grid" id="refsGrid"></div></dialog>
+<dialog id="login" class="small-dialog"><h2>My TinyTales</h2><p>Customer account/login is reserved for the secure server-side integration. The front-end keeps the workflow ready without exposing credentials.</p><button class="primary" data-close="login">Close</button></dialog>
+<dialog id="support" class="small-dialog"><h2>Need Help?</h2><p>For launch, this area connects to FAQ, support tickets and order help. The physical book and home-delivery system is marked “Coming Soon”.</p><button class="primary" data-close="support">Close</button></dialog>
+<div id="toast" class="toast" role="status"></div>
+<script src="script.js"></script>
+</body></html>
+  
