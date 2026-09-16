@@ -11,80 +11,1084 @@
 <link rel="icon" href="assets/tinytales-logo.png">
 <title>TinyTales — Personalized Magical Storybooks</title>
 <link rel="stylesheet" href="style.css">
+
+<!-- TINYYTALES VISUAL OVERRIDE
+     Design only — JavaScript remains untouched -->
+<style>
+
+/* =========================================
+   TINYTALES HERO — MAGIC VISUAL
+   ========================================= */
+
+.portal-wrap {
+  position: relative;
+  isolation: isolate;
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Magical glow behind the portal */
+.portal-wrap::before {
+  content: "";
+  position: absolute;
+  width: 560px;
+  height: 560px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,221,157,.30) 0%,
+      rgba(205,137,255,.16) 34%,
+      rgba(80,45,120,.08) 55%,
+      transparent 72%
+    );
+
+  filter: blur(30px);
+  z-index: -2;
+
+  animation: tinyTalesAura 5s ease-in-out infinite;
+}
+
+/* Soft secondary aura */
+.portal-wrap::after {
+  content: "";
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  left: 50%;
+  top: 48%;
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,236,187,.18),
+      transparent 68%
+    );
+
+  filter: blur(25px);
+  z-index: -1;
+}
+
+
+/* =========================================
+   PORTAL FRAME
+   ========================================= */
+
+.portal {
+  position: relative;
+
+  width: min(470px, 76%);
+  aspect-ratio: .73;
+
+  padding: 15px;
+
+  border-radius: 240px 240px 42px 42px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #25162d 0%,
+      #9b633e 34%,
+      #5d392a 66%,
+      #21152a 100%
+    );
+
+  box-shadow:
+    0 0 35px rgba(218,148,255,.25),
+    0 0 90px rgba(157,75,255,.28),
+    inset 0 0 0 2px rgba(255,224,174,.68);
+
+  animation: tinyTalesFloat 6s ease-in-out infinite;
+
+  z-index: 2;
+}
+
+
+/* Golden inner frame */
+.portal::before {
+  content: "";
+
+  position: absolute;
+  inset: 13px;
+
+  border-radius: 225px 225px 34px 34px;
+
+  border: 3px solid rgba(238,191,126,.95);
+
+  box-shadow:
+    0 0 18px rgba(255,216,145,.72),
+    0 0 55px rgba(224,142,255,.48),
+    inset 0 0 35px rgba(255,211,140,.35);
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   MAGICAL PORTAL INTERIOR
+   ========================================= */
+
+.portal-inner {
+  position: absolute;
+  inset: 25px;
+
+  overflow: hidden;
+
+  border-radius: 205px 205px 24px 24px;
+
+  background:
+    radial-gradient(
+      circle at 50% 25%,
+      #fff4d0 0%,
+      #ffd88f 12%,
+      #b97863 29%,
+      #4a324f 55%,
+      #151023 90%
+    );
+
+  box-shadow:
+    inset 0 0 55px rgba(255,224,163,.32);
+
+  isolation: isolate;
+}
+
+
+/* Warm magical light */
+.portal-light {
+  position: absolute;
+
+  inset: 12% 10% 18%;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(255,240,193,.82) 0%,
+      rgba(255,202,113,.30) 36%,
+      transparent 72%
+    );
+
+  filter: blur(25px);
+
+  animation: tinyTalesLight 4s ease-in-out infinite;
+}
+
+
+/* Magical atmospheric layers */
+.portal-inner::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 25% 22%,
+      rgba(197,126,255,.30),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 78% 28%,
+      rgba(255,182,143,.25),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 50% 70%,
+      rgba(255,222,161,.18),
+      transparent 38%
+    );
+
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+/* Magical path */
+.portal-path {
+  position: absolute;
+
+  left: 50%;
+  bottom: -4%;
+  transform: translateX(-50%);
+
+  width: 74%;
+  height: 48%;
+
+  clip-path: polygon(
+    30% 0,
+    70% 0,
+    100% 100%,
+    0 100%
+  );
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(191,145,101,.92),
+      rgba(71,44,36,.98)
+    );
+
+  box-shadow:
+    0 -25px 40px rgba(255,214,158,.16);
+
+  z-index: 3;
+}
+
+
+/* =========================================
+   CAPTION
+   ========================================= */
+
+.portal-caption {
+  position: absolute;
+
+  bottom: 2px;
+
+  z-index: 10;
+
+  padding: 9px 17px;
+
+  border-radius: 999px;
+
+  background: rgba(7,9,22,.48);
+
+  border: 1px solid rgba(244,207,218,.22);
+
+  backdrop-filter: blur(12px);
+
+  color: rgba(255,246,226,.92);
+
+  font-size: 13px;
+
+  letter-spacing: .03em;
+
+  text-shadow:
+    0 2px 8px rgba(0,0,0,.85);
+
+  box-shadow:
+    0 8px 25px rgba(0,0,0,.25);
+}
+
+
+/* =========================================
+   PAGE ATMOSPHERE
+   ========================================= */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 700px;
+  height: 700px;
+
+  right: -300px;
+  top: -300px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(174,104,255,.12),
+      transparent 68%
+    );
+
+  filter: blur(35px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   BUTTON POLISH
+   ========================================= */
+
+.primary,
+.secondary,
+.pill-btn,
+.glass-btn {
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    filter .25s ease;
+}
+
+.primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+.secondary:hover,
+.pill-btn:hover,
+.glass-btn:hover {
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   FIRELIGHT / AMBIENT PARTICLES
+   ========================================= */
+
+.ambient span {
+  background: #ffe8a7;
+
+  box-shadow:
+    0 0 7px #ffe7a6,
+    0 0 18px rgba(255,221,140,.75);
+
+  animation:
+    tinyFireflyFloat 6s ease-in-out infinite,
+    tinyFireflyGlow 2s ease-in-out infinite alternate;
+}
+
+.ambient span:nth-child(1) {
+  animation-delay: .3s;
+}
+
+.ambient span:nth-child(2) {
+  animation-delay: 1.2s;
+}
+
+.ambient span:nth-child(3) {
+  animation-delay: 2s;
+}
+
+.ambient span:nth-child(4) {
+  animation-delay: 3.1s;
+}
+
+.ambient span:nth-child(5) {
+  animation-delay: 4s;
+}
+
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+
+@keyframes tinyTalesAura {
+
+  0%,100% {
+    opacity: .55;
+    transform: translate(-50%,-50%) scale(.94);
+  }
+
+  50% {
+    opacity: .95;
+    transform: translate(-50%,-50%) scale(1.07);
+  }
+}
+
+
+@keyframes tinyTalesFloat {
+
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+
+@keyframes tinyTalesLight {
+
+  0%,100% {
+    opacity: .68;
+    transform: scale(.96);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+
+@keyframes tinyFireflyFloat {
+
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-17px);
+  }
+}
+
+
+@keyframes tinyFireflyGlow {
+
+  from {
+    opacity: .35;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 980px) {
+
+  .portal-wrap {
+    min-height: 470px;
+  }
+
+  .portal {
+    width: min(360px,72vw);
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .hero {
+    padding-top: 18px;
+  }
+
+  .portal-wrap {
+    min-height: 350px;
+  }
+
+  .portal {
+    width: min(255px,68vw);
+  }
+
+  .portal-wrap::before {
+    width: 330px;
+    height: 330px;
+  }
+
+  .portal-wrap::after {
+    width: 240px;
+    height: 240px;
+  }
+
+  .portal-caption {
+    font-size: 11px;
+    padding: 7px 13px;
+  }
+
+}
+
+</style>
 </head>
+
 <body>
-<div class="ambient" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+<div class="ambient" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
 <header class="site-header">
-  <a class="brand" href="#home"><img src="assets/tinytales-logo.png" alt="TinyTales logo"><span>TinyTales</span></a>
-  <nav><a href="#how">How It Works</a><a href="#occasions">Occasions</a><a href="#pricing">Pricing</a><a href="#samples">Sample Books</a></nav>
-  <div class="header-actions"><button class="glass-btn" id="langBtn">🌐 <span>English</span>⌄</button><button class="pill-btn" id="loginBtn">Login</button></div>
+
+  <a class="brand" href="#home">
+    <img src="assets/tinytales-logo.png" alt="TinyTales logo">
+    <span>TinyTales</span>
+  </a>
+
+  <nav>
+    <a href="#how">How It Works</a>
+    <a href="#occasions">Occasions</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#samples">Sample Books</a>
+  </nav>
+
+  <div class="header-actions">
+    <button class="glass-btn" id="langBtn">
+      🌐 <span>English</span>⌄
+    </button>
+
+    <button class="pill-btn" id="loginBtn">
+      Login
+    </button>
+  </div>
+
 </header>
 
+
 <main id="home">
+
+<!-- ================= HERO ================= -->
+
 <section class="hero">
+
   <div class="hero-copy">
-    <div class="eyebrow">✦ YOUR PEOPLE ✦ YOUR STORY ✦ YOUR MAGIC ✦</div>
-    <h1>Turn a special moment into a <em>magical storybook.</em></h1>
-    <p>Create a personalized TinyTales book for a baby, couple, family, best friend or someone special — in English, বাংলা or हिन्दी.</p>
-    <div class="hero-actions"><button class="primary" data-start>✦ Create My TinyTales</button><button class="secondary" data-scroll="#occasions">Explore Occasions</button></div>
-    <div class="trust-row"><span>📖 Digital PDF</span><span>🌈 3 Languages</span><span>✦ TinyTales Signature</span><span>🛡 Secure</span></div>
+
+    <div class="eyebrow">
+      ✦ YOUR PEOPLE ✦ YOUR STORY ✦ YOUR MAGIC ✦
+    </div>
+
+    <h1>
+      Turn a special moment into a
+      <em>magical storybook.</em>
+    </h1>
+
+    <p>
+      Create a personalized TinyTales book for a baby,
+      couple, family, best friend or someone special —
+      in English, বাংলা or हिन्दी.
+    </p>
+
+    <div class="hero-actions">
+
+      <button class="primary" data-start>
+        ✦ Create My TinyTales
+      </button>
+
+      <button class="secondary" data-scroll="#occasions">
+        Explore Occasions
+      </button>
+
+    </div>
+
+    <div class="trust-row">
+      <span>📖 Digital PDF</span>
+      <span>🌈 3 Languages</span>
+      <span>✦ TinyTales Signature</span>
+      <span>🛡 Secure</span>
+    </div>
+
   </div>
-  <div class="portal-wrap" aria-label="TinyTales magical portal">
-    <div class="portal"><div class="portal-inner"><div class="portal-light"></div><div class="portal-path"></div></div></div>
-    <div class="portal-caption">A little doorway into their story</div>
+
+
+  <!-- MAGIC PORTAL -->
+
+  <div
+    class="portal-wrap"
+    aria-label="TinyTales magical portal"
+  >
+
+    <div class="portal">
+
+      <div class="portal-inner">
+
+        <div class="portal-light"></div>
+
+        <div class="portal-path"></div>
+
+      </div>
+
+    </div>
+
+    <div class="portal-caption">
+      A little doorway into their story
+    </div>
+
   </div>
+
 </section>
+
+
+<!-- ================= OCCASIONS ================= -->
 
 <section class="section" id="occasions">
-  <div class="section-title"><span>✦</span><h2>Create for every <em>special occasion</em></h2><span>✦</span></div>
-  <div class="occasion-mini">
-    <button data-type="Baby / Child"><div class="art art-baby">👶</div><b>Baby</b><small>Little memories</small></button>
-    <button data-type="Couple"><div class="art art-couple">♥</div><b>Couple</b><small>Love story</small></button>
-    <button data-type="Family"><div class="art art-family">👨‍👩‍👧</div><b>Family</b><small>Forever moments</small></button>
-    <button data-type="Best Friend"><div class="art art-friend">✧</div><b>Friends</b><small>Shared adventures</small></button>
-    <button data-type="Someone Special"><div class="art art-special">📖</div><b>Someone Special</b><small>A heartfelt gift</small></button>
+
+  <div class="section-title">
+    <span>✦</span>
+
+    <h2>
+      Create for every
+      <em>special occasion</em>
+    </h2>
+
+    <span>✦</span>
   </div>
+
+
+  <div class="occasion-mini">
+
+    <button data-type="Baby / Child">
+      <div class="art art-baby">👶</div>
+      <b>Baby</b>
+      <small>Little memories</small>
+    </button>
+
+    <button data-type="Couple">
+      <div class="art art-couple">♥</div>
+      <b>Couple</b>
+      <small>Love story</small>
+    </button>
+
+    <button data-type="Family">
+      <div class="art art-family">👨‍👩‍👧</div>
+      <b>Family</b>
+      <small>Forever moments</small>
+    </button>
+
+    <button data-type="Best Friend">
+      <div class="art art-friend">✧</div>
+      <b>Friends</b>
+      <small>Shared adventures</small>
+    </button>
+
+    <button data-type="Someone Special">
+      <div class="art art-special">📖</div>
+      <b>Someone Special</b>
+      <small>A heartfelt gift</small>
+    </button>
+
+  </div>
+
 </section>
+
+
+<!-- ================= JOURNEY ================= -->
 
 <section class="section journey" id="how">
- <div class="section-title"><span>✦</span><h2>The TinyTales <em>journey</em></h2><span>✦</span></div>
- <div class="journey-line">
-  <article><i>01</i><strong>Choose your world</strong><p>Person, occasion, language and book length.</p></article>
-  <article><i>02</i><strong>Add your memories</strong><p>Names, story details and your photos.</p></article>
-  <article><i>03</i><strong>See the magic</strong><p>Character, theme and complete preview.</p></article>
-  <article><i>04</i><strong>Keep it forever</strong><p>Approve, pay and unlock HD PDF.</p></article>
- </div>
+
+  <div class="section-title">
+    <span>✦</span>
+
+    <h2>
+      The TinyTales
+      <em>journey</em>
+    </h2>
+
+    <span>✦</span>
+  </div>
+
+
+  <div class="journey-line">
+
+    <article>
+      <i>01</i>
+      <strong>Choose your world</strong>
+      <p>
+        Person, occasion, language and book length.
+      </p>
+    </article>
+
+    <article>
+      <i>02</i>
+      <strong>Add your memories</strong>
+      <p>
+        Names, story details and your photos.
+      </p>
+    </article>
+
+    <article>
+      <i>03</i>
+      <strong>See the magic</strong>
+      <p>
+        Character, theme and complete preview.
+      </p>
+    </article>
+
+    <article>
+      <i>04</i>
+      <strong>Keep it forever</strong>
+      <p>
+        Approve, pay and unlock HD PDF.
+      </p>
+    </article>
+
+  </div>
+
 </section>
+
+
+<!-- ================= PRICING ================= -->
 
 <section class="section pricing" id="pricing">
- <div class="section-title"><span>✦</span><h2>Simple magical <em>packages</em></h2><span>✦</span></div>
- <div class="price-grid" id="priceGrid"></div>
- <p class="price-note">All prices are for digital PDF storybooks. Covers are added to the final PDF automatically. Physical printing & home delivery are coming later.</p>
+
+  <div class="section-title">
+    <span>✦</span>
+
+    <h2>
+      Simple magical
+      <em>packages</em>
+    </h2>
+
+    <span>✦</span>
+  </div>
+
+  <div class="price-grid" id="priceGrid"></div>
+
+  <p class="price-note">
+    All prices are for digital PDF storybooks.
+    Covers are added to the final PDF automatically.
+    Physical printing & home delivery are coming later.
+  </p>
+
 </section>
+
+
+<!-- ================= SAMPLES ================= -->
 
 <section class="section samples" id="samples">
- <div class="section-title"><span>✦</span><h2>Real memories meet <em>storybook magic</em></h2><span>✦</span></div>
- <div class="sample-card">
-   <div class="sample-book"><div class="sample-page"><span>TinyTales</span><b>Once Upon<br>A Memory...</b><small>Real photos + AI storybook scenes</small></div><div class="sample-page second"><div class="sample-photo"></div><p>Your story becomes a beautiful page with a dedicated space for readable text.</p></div></div>
-   <div><div class="eyebrow">50% REAL + 50% AI BY DEFAULT</div><h3>A real book feeling, made from your memories.</h3><p>One main image per story page, no collage. Character and visual style stay consistent from beginning to end.</p><button class="primary" data-start>Start Your Book</button></div>
- </div>
+
+  <div class="section-title">
+    <span>✦</span>
+
+    <h2>
+      Real memories meet
+      <em>storybook magic</em>
+    </h2>
+
+    <span>✦</span>
+  </div>
+
+
+  <div class="sample-card">
+
+    <div class="sample-book">
+
+      <div class="sample-page">
+
+        <span>TinyTales</span>
+
+        <b>
+          Once Upon<br>
+          A Memory...
+        </b>
+
+        <small>
+          Real photos + AI storybook scenes
+        </small>
+
+      </div>
+
+
+      <div class="sample-page second">
+
+        <div class="sample-photo"></div>
+
+        <p>
+          Your story becomes a beautiful page
+          with a dedicated space for readable text.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div>
+
+      <div class="eyebrow">
+        50% REAL + 50% AI BY DEFAULT
+      </div>
+
+      <h3>
+        A real book feeling,
+        made from your memories.
+      </h3>
+
+      <p>
+        One main image per story page, no collage.
+        Character and visual style stay consistent
+        from beginning to end.
+      </p>
+
+      <button class="primary" data-start>
+        Start Your Book
+      </button>
+
+    </div>
+
+  </div>
+
 </section>
 
-<section class="cta"><div><div class="eyebrow">✦ YOUR MAGIC AWAITS ✦</div><h2>Ready to make their story unforgettable?</h2><p>Build the preview first. Pay only when it looks perfect.</p></div><button class="primary" data-start>Create My TinyTales</button></section>
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+  <div>
+
+    <div class="eyebrow">
+      ✦ YOUR MAGIC AWAITS ✦
+    </div>
+
+    <h2>
+      Ready to make their story unforgettable?
+    </h2>
+
+    <p>
+      Build the preview first.
+      Pay only when it looks perfect.
+    </p>
+
+  </div>
+
+  <button class="primary" data-start>
+    Create My TinyTales
+  </button>
+
+</section>
+
 </main>
 
-<footer><div><b>TinyTales</b><small>Your People • Your Story • Your Magic</small></div><div class="footer-links"><a href="#how">How It Works</a><a href="#pricing">Pricing</a><button id="refsBtn">Design References</button><button id="supportBtn">Support</button></div><small>Digital PDF only • Physical books coming soon</small></footer>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <div>
+    <b>TinyTales</b>
+    <small>
+      Your People • Your Story • Your Magic
+    </small>
+  </div>
+
+  <div class="footer-links">
+
+    <a href="#how">How It Works</a>
+
+    <a href="#pricing">Pricing</a>
+
+    <button id="refsBtn">
+      Design References
+    </button>
+
+    <button id="supportBtn">
+      Support
+    </button>
+
+  </div>
+
+  <small>
+    Digital PDF only • Physical books coming soon
+  </small>
+
+</footer>
+
+
+<!-- ================= STORY WIZARD ================= -->
 
 <dialog id="wizard" class="wizard-dialog">
- <div class="wizard-top"><div class="wizard-brand"><img src="assets/tinytales-logo.png" alt="TinyTales"><span>TinyTales</span></div><button class="x" data-close="wizard">×</button></div>
- <div class="progress"><div class="progress-track"><span id="progress"></span></div><div class="progress-dots" id="dots"></div></div>
- <div class="wizard-grid"><section class="wizard-main"><div class="step-kicker" id="stepKicker"></div><h2 id="stepTitle"></h2><div id="stepBody"></div><div class="wizard-actions"><button class="secondary" id="backBtn">Back</button><button class="primary" id="nextBtn">Continue</button></div></section><aside class="live-card"><div class="live-label">LIVE STORYBOOK</div><div class="live-book"><div><span>TinyTales</span><b id="liveTitle">Your Magical Story</b><small id="liveMeta">Baby / Child • Birthday</small></div></div><div class="live-tags"><span id="liveType">Baby / Child</span><span id="liveOccasion">Birthday</span><span id="liveLang">English</span><span id="livePages">8 Pages</span></div></aside></div>
+
+  <div class="wizard-top">
+
+    <div class="wizard-brand">
+
+      <img
+        src="assets/tinytales-logo.png"
+        alt="TinyTales"
+      >
+
+      <span>TinyTales</span>
+
+    </div>
+
+    <button class="x" data-close="wizard">
+      ×
+    </button>
+
+  </div>
+
+
+  <div class="progress">
+
+    <div class="progress-track">
+      <span id="progress"></span>
+    </div>
+
+    <div
+      class="progress-dots"
+      id="dots">
+    </div>
+
+  </div>
+
+
+  <div class="wizard-grid">
+
+    <section class="wizard-main">
+
+      <div
+        class="step-kicker"
+        id="stepKicker">
+      </div>
+
+      <h2 id="stepTitle"></h2>
+
+      <div id="stepBody"></div>
+
+
+      <div class="wizard-actions">
+
+        <button
+          class="secondary"
+          id="backBtn">
+          Back
+        </button>
+
+        <button
+          class="primary"
+          id="nextBtn">
+          Continue
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <aside class="live-card">
+
+      <div class="live-label">
+        LIVE STORYBOOK
+      </div>
+
+      <div class="live-book">
+
+        <div>
+
+          <span>TinyTales</span>
+
+          <b id="liveTitle">
+            Your Magical Story
+          </b>
+
+          <small id="liveMeta">
+            Baby / Child • Birthday
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div class="live-tags">
+
+        <span id="liveType">
+          Baby / Child
+        </span>
+
+        <span id="liveOccasion">
+          Birthday
+        </span>
+
+        <span id="liveLang">
+          English
+        </span>
+
+        <span id="livePages">
+          8 Pages
+        </span>
+
+      </div>
+
+    </aside>
+
+  </div>
+
 </dialog>
 
-<dialog id="refs" class="refs-dialog"><div class="dialog-head"><h2>Design References</h2><button class="x" data-close="refs">×</button></div><p>The supplied references are included in this final package and are used as the visual blueprint for the real HTML/CSS/JS interface.</p><div class="refs-grid" id="refsGrid"></div></dialog>
-<dialog id="login" class="small-dialog"><h2>My TinyTales</h2><p>Customer account/login is reserved for the secure server-side integration. The front-end keeps the workflow ready without exposing credentials.</p><button class="primary" data-close="login">Close</button></dialog>
-<dialog id="support" class="small-dialog"><h2>Need Help?</h2><p>For launch, this area connects to FAQ, support tickets and order help. The physical book and home-delivery system is marked “Coming Soon”.</p><button class="primary" data-close="support">Close</button></dialog>
-<div id="toast" class="toast" role="status"></div>
+
+<!-- ================= REFERENCES ================= -->
+
+<dialog id="refs" class="refs-dialog">
+
+  <div class="dialog-head">
+
+    <h2>
+      Design References
+    </h2>
+
+    <button
+      class="x"
+      data-close="refs">
+      ×
+    </button>
+
+  </div>
+
+  <p>
+    The supplied references are included in this
+    final package and are used as the visual
+    blueprint for the real HTML/CSS/JS interface.
+  </p>
+
+  <div
+    class="refs-grid"
+    id="refsGrid">
+  </div>
+
+</dialog>
+
+
+<!-- ================= LOGIN ================= -->
+
+<dialog id="login" class="small-dialog">
+
+  <h2>
+    My TinyTales
+  </h2>
+
+  <p>
+    Customer account/login is reserved for
+    the secure server-side integration.
+    The front-end keeps the workflow ready
+    without exposing credentials.
+  </p>
+
+  <button
+    class="primary"
+    data-close="login">
+    Close
+  </button>
+
+</dialog>
+
+
+<!-- ================= SUPPORT ================= -->
+
+<dialog id="support" class="small-dialog">
+
+  <h2>
+    Need Help?
+  </h2>
+
+  <p>
+    For launch, this area connects to FAQ,
+    support tickets and order help.
+    The physical book and home-delivery system
+    is marked “Coming Soon”.
+  </p>
+
+  <button
+    class="primary"
+    data-close="support">
+    Close
+  </button>
+
+</dialog>
+
+
+<div
+  id="toast"
+  class="toast"
+  role="status">
+</div>
+
+
+<!-- DO NOT CHANGE -->
 <script src="script.js"></script>
-</body></html>
-  
+
+</body>
+  </html>
